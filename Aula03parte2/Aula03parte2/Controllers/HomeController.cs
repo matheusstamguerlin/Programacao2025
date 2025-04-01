@@ -1,6 +1,7 @@
 using System.Diagnostics;
 using Microsoft.AspNetCore.Mvc;
 using Aula03parte2.Models;
+using System.Text;
 
 namespace Aula03parte2.Controllers;
 
@@ -132,5 +133,31 @@ public class HomeController : Controller
     public IActionResult Error()
     {
         return View(new ErrorViewModel { RequestId = Activity.Current?.Id ?? HttpContext.TraceIdentifier });
+    }
+}
+
+public class Exemplo
+{
+    public string GetForeach(string color)
+    {
+        string[] colors = {
+            "Vermelho", "Preto", "Azul", "Amarelo", "Verde",
+            "Branco", "Azul-Marinho", "Rosa", "Roxo", "Cinza"
+        };
+
+        StringBuilder retorno = new StringBuilder();
+
+        if (colors.Contains(color))
+            retorno.AppendLine("A cor escolhida é válida.");
+        else
+            retorno.AppendLine("Cor escolhida inválida.");
+
+        retorno.Append("Cores disponíveis: ");
+        foreach (string s in colors)
+        {
+            retorno.Append($"[{s}] ");
+        }
+
+        return retorno.ToString();
     }
 }
