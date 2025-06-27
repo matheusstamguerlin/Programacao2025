@@ -1,0 +1,61 @@
+﻿@model List<Modelo.Customer>
+
+<a class="btn btn-light" asp-action="Create" asp-controller="Customer">
+    Novo Customer
+</a>
+<a class="btn btn-light" asp-action="Edit" asp-controller="Customer">
+    Editar Customer
+</a>
+
+@if(Model.Count > 0)
+{
+    <table class="table table-striped table-bordered table-hover">
+        <thead class="table-dark">
+            <tr>
+                <th>Id</th>
+                <th>Nome</th>
+                <th>Ações</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (Modelo.Customer customer in Model)
+            {
+                <tr>
+                    <td>@customer.Id</td>
+                    <td>
+                        <a asp-action="Update"
+                           asp-controller="Customer"
+                           asp-route-id="@customer.Id"
+                           title="Editar @customer.Name">
+                            @customer.Name
+                        </a>
+                    </td>
+                    <td>
+                        <a asp-action="Delete" 
+                        asp-controller="Customer" 
+                        asp-route-id="@customer.Id" 
+                        title="Excluir @customer.Name">
+                            <i class="fa-solid fa-trash"></i>
+                        </a>
+                    </td>
+                </tr>    
+            }
+        </tbody>
+        <tfoot></tfoot>
+    </table>
+}
+else
+{
+    <div>
+        <p>
+            Não existem registros de Customer
+        </p>
+    </div>
+}
+
+<a class="btn btn-light" asp-action="ExportDelimitatedFile" asp-controller="Customer">
+    Exportar Delimitado
+</a>
+<a class="btn btn-light" asp-action="ExportFixedFile" asp-controller="Customer">
+    Exportar Fixo
+</a>

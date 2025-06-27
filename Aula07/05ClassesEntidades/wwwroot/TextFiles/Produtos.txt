@@ -1,0 +1,50 @@
+1;
+Produto 1;
+Sabonete;
+3
+
+2;
+Produto 2;
+Sabonete;
+59
+
+3;
+Produto 3;
+Sabonete;
+60
+
+4;
+Produto 4;
+Sabonete;
+93
+
+5;
+Produto 5;
+Sabonete;
+3
+
+6;
+Produto 6;
+Sabonete;
+51
+
+7;
+Produto 7;
+Sabonete;
+25
+
+8;
+Produto 8;
+Sabonete;
+26
+
+9;
+Produto 9;
+Sabonete;
+89
+
+10;
+Produto 10;
+Sabonete;
+35
+

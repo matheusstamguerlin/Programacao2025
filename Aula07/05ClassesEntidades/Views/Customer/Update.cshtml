@@ -1,0 +1,87 @@
+﻿@model Modelo.Customer
+
+@{
+    ViewData["Title"] = "Home Page";
+}
+
+<div class="text-center">
+    <h1>Consumidor @Model.Name</h1>
+
+    <div class="container">
+
+        <form id="formCustomer" method="post" asp-action="ConfirmUpdate" asp-controller="Customer">
+
+            <input asp-for="@Model.Id" type="text" />
+
+            <div class="row">
+                <div class="form-group">
+                    <label asp-for="@Model.Name">Nome:</label>
+                    <input type="text" class="form-control" asp-for="@Model.Name" />
+                </div>
+            </div>   
+
+            <div class="row">
+                <div class="form-group">
+                    <label asp-for="@Model.HomeAddress!.AddressType">Tipo de Endereço:</label>
+                    <input type="text" class="form-control" asp-for="@Model.HomeAddress!.AddressType" />
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="form-group">
+                    <label asp-for="@Model.HomeAddress!.StreetLine1">Rua de Casa 1:</label>
+                    <input type="text" class="form-control" asp-for="@Model.HomeAddress!.StreetLine1" />
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="form-group">
+                    <label asp-for="@Model.HomeAddress!.StreetLine2">Rua de Casa 2:</label>
+                    <input type="text" class="form-control" asp-for="@Model.HomeAddress!.StreetLine2" />
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="form-group">
+                    <label asp-for="@Model.HomeAddress!.StreetLine2">Rua de Casa 2:</label>
+                    <input type="text" class="form-control" asp-for="@Model.HomeAddress!.StreetLine2" />
+                </div>
+            </div>
+
+            <hr/>
+
+            <div class="row">
+                <div class="form-group">
+                    <label asp-for="@Model.WorkAddress!.AddressType">Tipo de Endereço:</label>
+                    <input type="text" class="form-control" asp-for="@Model.WorkAddress!.AddressType" />
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="form-group">
+                    <label asp-for="@Model.WorkAddress!.StreetLine1">Rua do Trabalho 1:</label>
+                    <input type="text" class="form-control" asp-for="@Model.WorkAddress!.StreetLine1" />
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="form-group">
+                    <label asp-for="@Model.WorkAddress!.StreetLine2">Rua do Trabalho 2:</label>
+                    <input type="text" class="form-control" asp-for="@Model.WorkAddress!.StreetLine2" />
+                </div>
+            </div>    
+            <div class="row">
+                <div class="form-group">
+                    <label asp-for="@Model.WorkAddress!.StateOrProvince">Estado ou Província:</label>
+                    <input type="text" class="form-control" asp-for="@Model.WorkAddress!.StateOrProvince" />
+                </div>
+            </div>
+
+            <button id="btnCustomer" type="submit" value="Update" class="btn btn-primary">
+                Atualizar
+            </button>
+
+        </form>
+
+    </div>
+</div>

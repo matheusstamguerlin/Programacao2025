@@ -1,0 +1,76 @@
+﻿@model _05ClassesEntidades.ViewModels.OrderViewModel;
+
+@{
+    ViewData["Title"] = "Criar Pedido";
+}
+
+<div class="text-center">
+    <h1>Cadastro de Pedido</h1>
+
+    <div class="container">
+
+        <form id="formOrder" method="post" asp-action="Create" asp-controller="Order">
+
+            <div class="row">
+                <div class="form-group">
+                    <label asp-for="@Model.CustomerId">Cliente:</label>
+                    <select asp-for="@Model.CustomerId">
+                        @foreach(var c in Model.Customers)
+                        {
+                            <option value="@c.Id">
+                                @c.Name
+                            </option>
+                        }
+                    </select>
+
+                    <br />
+
+                    <table class="table-bordered">
+                        <thead>
+                            <tr>
+                                <th></th>
+                                <th>Item</th>
+                                <th>QTD</th>
+                                <th>Valor</th>
+                                <th>Preço Atual</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                        @for(int i = 0; i < Model.SelectedItems!.Count; i++)
+                        {
+                            <tr>
+                                <td>
+                                    <input id="@i" asp-for="@Model.SelectedItems[i].IsSelected" />
+                                </td>
+                                <td>
+                                    <input type="hidden" asp-for="@Model.SelectedItems[i].OrderItem.Product!.Id" />
+                                    <label for="@i">
+                                        @Model.SelectedItems[i].OrderItem.Product?.ProductName
+                                    </label>
+                                </td>
+                                <td>
+                                    <input type="number" asp-for="@Model.SelectedItems[i].OrderItem.Quantity" />
+                                </td>
+                                <td>
+                                    <input type="number" asp-for="@Model.SelectedItems[i].OrderItem.PurchasePrice" />
+                                </td>
+                                <td>
+                                    <p>
+                                        @string.Format("{0:C}", Model.SelectedItems[i].OrderItem.Product!.CurrentPrice)
+                                    <p />
+                                </td>
+                            </tr>
+                        }
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+
+            <button id="btnOrder" type="submit" class="btn btn-primary">
+                Cadastrar
+            </button>
+
+        </form>
+
+    </div>
+</div>

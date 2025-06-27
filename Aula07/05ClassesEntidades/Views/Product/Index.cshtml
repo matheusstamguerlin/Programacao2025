@@ -1,0 +1,41 @@
+﻿@model List<Modelo.Product>
+
+<a class="btn btn-light" asp-action="Create" asp-controller="Product">
+    Novo Produto
+</a>
+@if (Model.Count > 0)
+{
+    <table>
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Nome</th>
+                <th>Descrição</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (Modelo.Product product in Model)
+            {
+                <tr>
+                    <td>@product.Id</td>
+                    <td>@product.ProductName</td>
+                    <td>@product.Description</td>
+                    <td>@product.CurrentPrice</td>
+                </tr>
+            }
+        </tbody>
+        <tfoot></tfoot>
+    </table>
+}
+else
+{
+    <div>
+        <p>
+            Não existem registros de Produtos
+        </p>
+    </div>
+}
+
+<a class="btn btn-light" asp-action="ExportDelimitatedFile" asp-controller="Product">
+    Exportar Dados
+</a>
