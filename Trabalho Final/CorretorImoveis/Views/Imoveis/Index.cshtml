@@ -1,0 +1,38 @@
+﻿@model List<CorretorImoveis.Models.Imovel>
+
+@{
+    ViewData["Title"] = "Lista de Imóveis";
+}
+
+<h1>Lista de Imóveis</h1>
+
+<p>
+    <a asp-action="Criar" class="btn btn-primary">Adicionar Imóvel</a>
+    <a asp-action="Exportar" class="btn btn-success">Exportar para TXT</a>
+</p>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>Nome</th>
+            <th>Endereço</th>
+            <th>Categoria</th>
+            <th>Quartos</th>
+            <th>Vagas</th>
+            <th>Banheiros</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var imovel in Model)
+        {
+            <tr>
+                <td>@imovel.Nome</td>
+                <td>@imovel.Endereco</td>
+                <td>@imovel.Categoria</td>
+                <td>@imovel.Quartos</td>
+                <td>@imovel.VagasGaragem</td>
+                <td>@imovel.Banheiros</td>
+            </tr>
+        }
+    </tbody>
+</table>
